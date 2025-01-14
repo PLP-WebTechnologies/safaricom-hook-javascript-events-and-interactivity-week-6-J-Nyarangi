@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Elements Demo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Interactive Elements</h1>
+
+    <!-- Toggle Background Button -->
+    <div class="controls">
+        <button onclick="toggleBackground()">Toggle Background Color</button>
+    </div>
+
+    <!-- Text Size Slider -->
+    <div class="controls">
+        <label for="textSize">Adjust Text Size:</label>
+        <input type="range" id="textSize" min="12" max="32" value="16" oninput="adjustTextSize()">
+        <p id="sampleText">Slide to change text size.</p>
+    </div>
+
+    <!-- Modal Button -->
+    <div class="controls">
+        <button onclick="showModal()">Open Modal</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="hideModal()">×</span>
+            <h2>Modal Content</h2>
+            <p>This is a modal window. Click the X or outside the modal to close it.</p>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <div class="controls">
+        <h2>Registration Form</h2>
+        <form id="registrationForm" onsubmit="return validateForm(event)">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+                <div id="nameError" class="error">Name must be at least 3 characters long</div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+                <div id="emailError" class="error">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <div id="passwordError" class="error">Password must be at least 8 characters long and contain an uppercase letter and a number</div>
+            </div>
+
+            <button type="submit">Submit</button>
+            <div id="successMessage" class="success-message">Form submitted successfully!</div>
+        </form>
+    </div>
+
+    <!-- Bonus: Dropdown Menu -->
+    <div class="controls">
+        <label for="mood">How are you feeling today?</label>
+        <select id="mood" onchange="updateMoodMessage()">
+            <option value="">Select your mood</option>
+            <option value="happy">Happy</option>
+            <option value="excited">Excited</option>
+            <option value="relaxed">Relaxed</option>
+            <option value="tired">Tired</option>
+        </select>
+        <p id="moodMessage"></p>
+    </div>
+</body>
+</html>
